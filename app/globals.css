@@ -1,33 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+h1,
+h2,
+h3,
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+*,
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-regular-italic {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.triangle {
+  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  max-height: 100vh;
+}
+section {
+  z-index: 1;
+  margin-bottom: 5rem;
+  width: 100%;
+}
+
+.triangle::after {
+  content: "";
+  position: absolute;
+  width: 65%;
+  height: 100vh;
+  border-radius: 5%;
+  z-index: 0;
+  isolation: isolate;
+  background-color: theme("colors.onPrimaryContainer.dark");
+  transform: translateX(120%) rotate(55deg);
+}
+
+.light .triangle::after {
+  background-color: theme("colors.onPrimaryContainer.light");
+}
+
+.about--container {
+  position: relative;
+}
+
+.about--container::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: calc(100% + 10rem);
+  top: -5rem;
+  left: -50%;
+  top: 0;
+  background-color: theme("colors.secondaryContainer.light");
+  transform: rotate(-3deg);
+  z-index: -1;
+}
+
+.dark .about--container::after {
+  background-color: theme("colors.secondaryContainer.dark");
+}
+
+.blue-back {
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .blue-back::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 0;
+    left: 0;
+    background-color: theme("colors.primaryContainer.dark");
+    z-index: -1;
+    isolation: isolate;
+    border-radius: 10px;
   }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: theme("colors.onTertiaryContainer.dark");
+  box-shadow: 0 0 5px theme("colors.onTertiaryContainer.dark");
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme("colors.tertiaryContainer.dark");
+  border-radius: 10px;
+  border: 1px solid theme("colors.outline.dark");
+}
+
+:root {
+  --left: 3px;
+  --right: calc(50% + 3px);
+  --bg: theme("colors.surfaceContainerHighest.light");
+  --gradient-light: linear-gradient(90deg, #6577ae 0%, #0f2f6e 100%);
+  --gradient-dark: linear-gradient(90deg, #7891e2 0%, #4f8ce7 100%);
+}
+
+.gradient-primary {
+  background: var(--gradient-light);
+}
+
+.dark .gradient-primary {
+  background: var(--gradient-dark);
+}
+
+body {
+  background-color: #fff8f3;
+}
+
+.theme-container {
+  position: relative;
+  height: 25px;
+  width: 70px;
+}
+
+.toggle {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  position: relative;
+  background-color: var(--bg);
+  transition: background-color 0.3s ease;
+}
+
+.toggle::before {
+  content: "DARK";
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  display: flex;
+  color: theme("colors.onPrimaryContainer.dark");
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: calc(100% - 6px);
+  width: 50%;
+  border-radius: 20px;
+  top: 3px;
+  left: var(--left);
+  right: var(--right);
+  background-color: theme("colors.primaryContainer.dark");
+  opacity: 0.7;
+  transition: left 0.3s ease, right 0.3s ease;
+}
+
+input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+/* Apply styles based on the checkbox state */
+input[type="checkbox"]:checked ~ .toggle {
+  --left: calc(50% - 3px);
+  --right: 3px;
+  --bg: theme("colors.surfaceContainerHighest.dark");
+}
+
+input[type="checkbox"]:checked ~ .toggle::before {
+  background-color: theme("colors.primaryContainer.light");
+  color: theme("colors.onPrimaryContainer.light");
 }
