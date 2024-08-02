@@ -1,15 +1,44 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
+    emailjs.init(publicKey);
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+
+    if (!name || !email || !message) return;
+
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+
+    emailjs.sendForm(serviceID, templateID, e.target).then(
+      (result) => {
+        setName("");
+        setEmail("");
+        setMessage("");
+        const submitButton = document.getElementById("submit");
+        submitButton.innerHTML = "&#10004;";
+        submitButton.classList.add("green-bg");
+
+        setTimeout(() => {
+          submitButton.innerHTML = "Submit";
+          submitButton.classList.remove("green-bg");
+        }, 3000);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
   };
 
   return (
@@ -45,13 +74,14 @@ const Contact = () => {
                 Name
               </label>
               <input
-                className="shadow  bg-surfaceContainerLow text-onSurface appearance-none border rounded w-full py-4 px-6 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow  bg-surfaceContainerLow text-onSurface appearance-none border rounded w-full py-4 px-6 leading-tight focus:outline-none"
                 id="name"
+                name="from_name"
                 type="text"
                 placeholder="Raju Rastogi"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                autoComplete="none"
+                autoComplete="off"
               />
             </div>
             <div className="mb-8">
@@ -62,13 +92,14 @@ const Contact = () => {
                 Email
               </label>
               <input
-                className="shadow bg-surfaceContainerLow appearance-none border rounded w-full py-4 px-6 text-onSurface leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow bg-surfaceContainerLow appearance-none border rounded w-full py-4 px-6 text-onSurface leading-tight focus:outline-none"
                 id="email"
                 type="email"
+                name="email"
                 placeholder="someone@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                autoComplete="none"
+                autoComplete="off"
               />
             </div>
           </div>
@@ -80,18 +111,20 @@ const Contact = () => {
               Message
             </label>
             <textarea
-              className="bg-surfaceContainerLow border-outline outline-outline shadow appearance-none border font-mono rounded w-full h-36 py-4 px-6 text-onSurface leading-tight focus:outline-none focus:shadow-outline"
+              className="bg-surfaceContainerLow border-outline outline-outline shadow appearance-none border font-mono rounded w-full h-36 py-4 px-6 text-onSurface leading-tight focus:outline-none"
               id="message"
+              name="message"
               placeholder="Hello there! Do you know </i> Computer Vision </i>"
               value={message}
-              autoComplete="none"
+              autoComplete="off"
               onChange={(e) => setMessage(e.target.value)}
             />
           </div>
           <div className="flex items-center justify-end">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-right inline-block text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-blue-500 hover:bg-blue-700 inline-block text-white font-bold py-2 px-4 rounded focus:outline-none transition-all duration-300 ease-in-out min-w-24 text-center"
               type="submit"
+              id="submit"
             >
               Submit
             </button>
