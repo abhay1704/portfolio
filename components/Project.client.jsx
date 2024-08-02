@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { FaGithub } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
@@ -28,8 +28,8 @@ const Project = ({ title, about, demoImg, demoLink, githubLink, num }) => {
         <LoadingAnimation />
       ) : (
         <>
-          <div className="demo flex-1 rounded-md shadow-md p-0 flex align-middle mb-[-30%]  h-fit items-center lg:w-[40%] lg:ml-[-20%] lg:mb-auto mt-4">
-            <picture className="h-fit w-full min-h-64">
+          <div className="demo flex-1 rounded-md lg:shadow-md p-0 flex align-middle mb-[-30%]  h-fit items-center lg:w-[40%] lg:ml-[-20%] lg:mb-auto mt-4">
+            <picture className="h-fit w-full lg:min-h-64">
               {demoImg.includes(".mp4") ? (
                 <video src={demoImg} autoPlay loop="loop"></video>
               ) : (

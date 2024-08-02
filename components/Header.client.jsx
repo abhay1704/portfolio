@@ -6,7 +6,8 @@ const Header = () => {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark");
+    if (theme === "dark") document.documentElement.classList.add("dark");
+    else document.documentElement.classList.remove("dark");
   }, [theme]);
 
   const navHandler = (e) => {
@@ -68,6 +69,7 @@ const Header = () => {
             onChange={(e) => {
               setTheme(e.target.checked ? "dark" : "light");
             }}
+            defaultChecked={theme === "dark"}
           />
           <div className="toggle" aria-hidden="true"></div>
         </div>
