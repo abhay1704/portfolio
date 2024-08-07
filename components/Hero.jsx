@@ -5,12 +5,12 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="hero-section w-full min-h-[calc(100vh-10rem)] flex align-middle"
+      className="hero-section w-full min-h-screen lg:min-h-[calc(100vh-10rem)] flex align-middle items-center"
     >
       <div className="z-10 w-full items-center justify-between text-sm flex flex-col lg:flex-row gap-10">
-        <div className="content flex-1 items-center text-center lg:text-left tracking-wide">
+        <div className="content flex-1 items-center text-center lg:text-left tracking-wide px-4">
           <p className="text-lg">Hello, I'm</p>
-          <h1 className="text-pretty text-5xl font-extrabold text-primary my-2 montserrat">
+          <h1 className="text-pretty text-4xl lg:text-5xl font-extrabold text-primary my-2 montserrat">
             Abhay Pratap Singh
           </h1>
           <p className="text-lg">

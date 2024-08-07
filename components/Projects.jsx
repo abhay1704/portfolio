@@ -53,7 +53,7 @@ const Projects = () => {
     <section id="projects">
       <h1 className="montserrat text-3xl text-center font-bold">Projects</h1>
 
-      <div className="container mx-auto px-6 py-20 flex flex-col gap-36">
+      <div className="container mx-auto lg:px-6 py-20 flex flex-col gap-36">
         {projects.map((project, i) => {
           return <Project {...project} num={i % 2} key={i} />;
         })}

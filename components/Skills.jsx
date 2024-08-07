@@ -43,7 +43,7 @@ const icons = [
 const Skills = () => {
   return (
     <section id="skills" className=" text-onSurface py-20 mt-36">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto lg:px-6">
         <h2 className="text-4xl font-bold text-center mb-12">Skills</h2>
         <div className="flex flex-wrap justify-center">
           {icons.map(({ title, ICON }) => (

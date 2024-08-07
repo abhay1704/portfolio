@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+
+import { useEffect } from "react";
+import { initLazyLoading } from "./util";
 
 const certificates = [
   {
@@ -25,12 +28,15 @@ const certificates = [
     imageUrl:
       "https://drive.google.com/file/d/1Vg-xmiecQqintuv9rLyLMn6MZBnvvfYx/preview",
   },
-
 ];
 
 const Certificates = () => {
+  useEffect(() => {
+    initLazyLoading();
+  }, []);
+
   return (
-    <section id='certificates'>
+    <section id="certificates">
       <h1 className="montserrat text-3xl text-center font-bold mb-12">
         Certificates
       </h1>
@@ -40,13 +46,14 @@ const Certificates = () => {
             className="w-full lg:w-[calc(50%-2rem)] p-4 cursor-pointer transform transition-transform duration-200"
             key={title}
           >
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center relative w-full pb-[56.25%] h-0 overflow-hidden">
               <iframe
-                src={imageUrl}
-                className="w-full h-96"
+                src="https://giphy.com/embed/VseXvvxwowwCc"
+                data-url={imageUrl}
+                className=" absolute top-0 left-0 w-full h-full"
               ></iframe>
             </div>
-            <div className="flex flex-col items-center">
+            <div className="flex flex-col items-center mt-6">
               <h5 className="text-lg font-medium">{title}</h5>
               <p className="text-sm font-light">{organisation}</p>
             </div>

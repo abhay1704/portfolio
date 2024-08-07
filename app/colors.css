@@ -1,5 +1,3 @@
-
-
 .bg-primary {
   background-color: #4a5c92;
 }
@@ -8,18 +6,17 @@
   background-color: #b4c5ff;
 }
 
-.shadow-outline{
+.shadow-outline {
   box-shadow: 0 0 1px 1px #d9daeb6e;
 }
 
-
-
-.dark .shadow-outline{
+.dark .shadow-outline {
   box-shadow: 0 0 4px 3px #8f909a;
 }
 
 .shadow-md {
-  box-shadow: 0 2px 3px -3px #000000, 0 1px 2px -3px #000000;
+  box-shadow: -4px 0 4px -3px rgba(0, 0, 0, 0.05),
+    0 4px 5px -2px rgba(0, 0, 0, 0.1), 4px 0 4px -3px rgba(0, 0, 0, 0.05);
 }
 
 .dark .shadow-md {

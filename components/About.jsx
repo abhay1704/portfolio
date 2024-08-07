@@ -11,7 +11,7 @@ const About = () => {
             className="rounded-full w-64 h-64 mx-auto"
           />
         </div>
-        <div className="about--text w-full lg:w-2/3 text-left tracking-wider text-onSecondaryContainer">
+        <div className="about--text w-full lg:w-2/3 text-left px-4 tracking-wider text-onSecondaryContainer">
           <p className="text-lg lato-regular-italic">
             Hello! I'm Abhay Pratap Singh, a final-year Computer Science student
             at IIIT Sonepat. My coding journey began in 2021, during the first

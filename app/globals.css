@@ -42,6 +42,7 @@ h3,
   inset: 0;
   max-height: 100vh;
 }
+
 section {
   z-index: 1;
   margin-bottom: 5rem;
@@ -58,6 +59,13 @@ section {
   isolation: isolate;
   background-color: theme("colors.onPrimaryContainer.dark");
   transform: translateX(120%) rotate(55deg);
+}
+
+@media screen and (max-width: 768px) {
+  .triangle::after {
+    width: 85%;
+    transform: translateX(100%) rotate(45deg);
+  }
 }
 
 .light .triangle::after {
@@ -200,4 +208,10 @@ input[type="checkbox"]:checked ~ .toggle {
 input[type="checkbox"]:checked ~ .toggle::before {
   background-color: theme("colors.primaryContainer.light");
   color: theme("colors.onPrimaryContainer.light");
+}
+
+iframe img {
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
