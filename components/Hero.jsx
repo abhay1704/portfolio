@@ -16,9 +16,12 @@ const Hero = () => {
           <p className="text-lg">
             Frontend Developer & Machine Learning Enthusiast
           </p>
-          <button className="bg-gradient-to-r montserrat gradient-primary mt-6 mb-4 dark:text-onPrimaryContainer px-4 py-3 rounded">
+          <button className="bg-gradient-to-r montserrat gradient-primary mt-6 mb-4 dark:text-onPrimaryContainer rounded-sm">
             {" "}
-            <a href="https://drive.google.com/uc?export=download&id=1VDlg4VPFl-PMULMmAjPfrcMozmrJ7qfT">
+            <a
+              href="https://drive.google.com/uc?export=download&id=1VDlg4VPFl-PMULMmAjPfrcMozmrJ7qfT"
+              className="px-4 py-4 rounded-sm block"
+            >
               Download Resume
             </a>
           </button>
@@ -27,6 +30,8 @@ const Hero = () => {
               href="https://www.linkedin.com/in/abps/"
               target="_blank"
               rel="noreferrer"
+              id="linkedin-link"
+              aria-label="LinkedIn"
             >
               <FaLinkedin className="text-2xl text-primary " />
             </a>
@@ -34,6 +39,8 @@ const Hero = () => {
               href="https://github.com/abhay1704"
               target="_blank"
               rel="noreferrer"
+              id="github-link"
+              aria-label="Github"
             >
               <FaGithub className="text-2xl text-primary" />
             </a>
@@ -41,11 +48,18 @@ const Hero = () => {
         </div>
         <div className="flex-1 items-center flex justify-center align-middle">
           <div className="font-mono code-block">
-            <img
-              src="/skills_image.png"
-              alt=""
-              className="w-full object-contain"
-            />
+            <picture>
+              <source
+                srcSet="/skills_image_300.webp 300v, /skills_image_600.webp 600w, /skills_image_900.webp 900w"
+                type="image/webp"
+                className="w-full object-contain"
+              />
+              <img
+                src="/skills_image.png"
+                alt=""
+                className="w-full object-contain"
+              />
+            </picture>
           </div>
         </div>
       </div>

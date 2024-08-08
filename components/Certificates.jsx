@@ -50,11 +50,12 @@ const Certificates = () => {
               <iframe
                 src="https://giphy.com/embed/VseXvvxwowwCc"
                 data-url={imageUrl}
+                title={title}
                 className=" absolute top-0 left-0 w-full h-full"
               ></iframe>
             </div>
             <div className="flex flex-col items-center mt-6">
-              <h5 className="text-lg font-medium">{title}</h5>
+              <h3 className="text-lg font-medium">{title}</h3>
               <p className="text-sm font-light">{organisation}</p>
             </div>
           </div>

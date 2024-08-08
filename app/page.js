@@ -8,7 +8,6 @@ import Certificates from "../components/Certificates";
 import Header from "../components/Header.client";
 import Head from "next/head";
 
-
 export default function Home() {
   return (
     <>
@@ -23,8 +22,10 @@ export default function Home() {
         <Certificates />
         <Contact />
       </main>
-      <footer className="montserrat text-md w-[calc(100%+3rem)] lg:w-[calc(100%+10rem)] bg-primaryContainer text-onPrimaryContainer mx-[-3rem] lg:mx-[-5rem] py-12 px-4">
-        <div className="flex justify-center gap-4">Made by Abhay</div>
+      <footer className="montserrat text-md lg:w-[calc(100%+10rem)] bg-primaryContainer text-onPrimaryContainer  lg:mx-[-5rem] py-12 overflow-x-clip flex items-center justify-center">
+        <div className="flex justify-center  text-center mx-auto">
+          <span>Made by Abhay</span>
+        </div>
       </footer>
     </>
   );

@@ -55,7 +55,7 @@ const Skills = () => {
                 <div className="w-16 h-16 flex items-center justify-center text-4xl mb-4">
                   <ICON />
                 </div>
-                <h5 className="text-lg font-medium">{title}</h5>
+                <h3 className="text-lg font-medium">{title}</h3>
               </div>
             </div>
           ))}

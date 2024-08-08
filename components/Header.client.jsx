@@ -62,9 +62,11 @@ const Header = () => {
           </ul>
         </nav>
         <div className="theme-container">
+          <label htmlFor="theme-toggle" className="max-w-0"></label>
           <input
             type="checkbox"
             id="theme-toggle"
+            name="theme-toggle"
             className="theme-toggle"
             onChange={(e) => {
               setTheme(e.target.checked ? "dark" : "light");

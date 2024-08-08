@@ -68,6 +68,7 @@ const Project = ({ title, about, demoImg, demoLink, githubLink, num }) => {
         <picture className="lg:min-h-64 absolute top-0 left-0 h-full w-full">
           <iframe
             src="https://giphy.com/embed/VseXvvxwowwCc"
+            title={title}
             data-src={demoImg}
             className="absolute top-0 left-0 w-full h-full z-[-1]"
           ></iframe>
@@ -78,21 +79,23 @@ const Project = ({ title, about, demoImg, demoLink, githubLink, num }) => {
           <h2 className="montserrat text-xl font-bold mb-4">{title}</h2>
           <p className="tracking-wide">{about}</p>
           <div className="flex gap-4 mt-10 lg:mt-20">
-            <button className="py-2 px-4 montserrat rounded-md bg-primary text-onPrimary">
+            <button className="montserrat rounded-md bg-primary text-onPrimary">
               <a
-                className="flex gap-2 items-center"
+                className="flex gap-2 items-center py-2 px-4 rounded-r-md"
                 href={githubLink}
                 target="_blank"
+                aria-label="Github Link"
               >
                 <FaGithub className="object-contain" />
                 Github
               </a>
             </button>
-            <button className="py-2 px-4 rounded-md bg-primary text-onPrimary">
+            <button className="rounded-md bg-primary text-onPrimary">
               <a
-                className="flex gap-2 items-center"
+                className="flex gap-2 items-center py-2 px-4 rounded-md"
                 href={demoLink}
                 target="_blank"
+                aria-label="Live Demo"
               >
                 Live Demo
               </a>

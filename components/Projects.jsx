@@ -16,8 +16,8 @@ const projects = [
       "Step into the fascinating world of artificial intelligence with the Image Classifier Builder! This Python-based command-line application empowers users to create their own image classification models. Simply provide a directory of images, train the model, and watch as it learns to recognize patterns and classify images accurately. Whether you're a beginner looking to learn more about machine learning or a seasoned developer eager to build something new, this project offers a hands-on experience.",
     demoImg:
       "https://raw.githubusercontent.com/abhay1704/Image-Classifier-Project/master/training%20Recording_reduced.mp4",
-    demoLink: "https://github.com/abhay1704/image-classifier-builder",
-    githubLink: "https://github.com/abhay1704/image-classifier-builder",
+    demoLink: "https://github.com/abhay1704/Image-Classifier-Project",
+    githubLink: "https://github.com/abhay1704/Image-Classifier-Project",
   },
   {
     title: "Linked-Twitch",

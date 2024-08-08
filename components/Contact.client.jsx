@@ -59,6 +59,7 @@ const Contact = () => {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="w-full h-full"
+            title="Sonipat Haryana"
           ></iframe>
         </div>
         <form
@@ -122,7 +123,7 @@ const Contact = () => {
           </div>
           <div className="flex items-center justify-end">
             <button
-              className="bg-blue-500 hover:bg-blue-700 inline-block text-white font-bold py-2 px-4 rounded focus:outline-none transition-all duration-300 ease-in-out min-w-24 text-center"
+              className="bg-primary hover:bg-blue-700 inline-block text-onPrimary font-bold py-2 px-4 rounded focus:outline-none transition-all duration-300 ease-in-out min-w-24 text-center"
               type="submit"
               id="submit"
             >
